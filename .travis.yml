@@ -1,4 +1,4 @@
 language: objective-c
 compiler: clang
-xcode_project: dblib.xcodeproj
+xcode_project: dlib.xcodeproj
 xcode_scheme: dlib
