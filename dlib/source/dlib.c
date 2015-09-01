@@ -83,6 +83,14 @@ void DLib_AddSearchPath( const char * path )
 
         #endif
     }
+    
+    /*
+     * Only used during Clang analysis part. Turns off the warning about
+     * a memory leak, as the leak is deliberate.
+     */
+    #ifdef __clang_analyzer__
+    free( newPath );
+    #endif
 }
 
 DLib_ModuleRef DLib_GetModule( const char * name )
