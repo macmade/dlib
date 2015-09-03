@@ -95,7 +95,7 @@ DLib_SymbolRef DLib_Module_GetSymbol( DLib_ModuleRef module, const char * name )
     {
         symbolRef = ( DLib_SymbolRef )__DLib_Array_GetValueAtIndex( &( module->symbols ), i );
         
-        if( symbolRef == NULL )
+        if( symbolRef == NULL || DLib_Symbol_GetName( symbolRef ) == NULL )
         {
             continue;
         }
