@@ -112,6 +112,11 @@ DLib_ModuleRef DLib_GetModule( const char * name )
     {
         moduleRef = ( DLib_ModuleRef )__DLib_Array_GetValueAtIndex( &__modules, i );
         
+        if( DLib_Module_GetName( moduleRef ) == NULL )
+        {
+            continue;
+        }
+        
         if( strcmp( DLib_Module_GetName( moduleRef ), name ) == 0 )
         {
             return moduleRef;
