@@ -169,9 +169,6 @@ void __DLib_Module_Load( DLib_ModuleRef module )
 
         if( ws != NULL )
         {
-            /*
-            module->handle = LoadLibraryEx( ws, NULL, LOAD_LIBRARY_SEARCH_DEFAULT_DIRS );
-            */
             module->handle = LoadLibrary( ws );
             
             free( ws );

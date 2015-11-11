@@ -100,8 +100,8 @@ extern "C" {
                                                                             DLib_ModuleRef mod;                                                                 \
                                                                             DLib_SymbolRef sym;                                                                 \
                                                                             void         * addr;                                                                \
-                                                                            long           laddr;                                                               \
-                                                                            long           lff;                                                                 \
+                                                                            DLib_Ptr       laddr;                                                               \
+                                                                            DLib_Ptr       lff;                                                                 \
                                                                             _ret_ ( * ff )( __VA_ARGS__ );                                                      \
                                                                                                                                                                 \
                                                                             mod   = DLib_GetModule( # _module_ );                                               \
@@ -110,9 +110,9 @@ extern "C" {
                                                                             if( sym != NULL )                                                                   \
                                                                             {                                                                                   \
                                                                                 addr  = DLib_Symbol_GetAddress( sym );                                          \
-                                                                                laddr = ( long )addr;                                                           \
+                                                                                laddr = ( DLib_Ptr )addr;                                                       \
                                                                                 ff    = ( _ret_ ( * )( __VA_ARGS__ ) )laddr;                                    \
-                                                                                lff   = ( long )ff;                                                             \
+                                                                                lff   = ( DLib_Ptr )ff;                                                         \
                                                                                                                                                                 \
                                                                                 DLIB_PRIVATE_ATOMIC_CAS_PTR( NULL, ( void * )lff, &f );                         \
                                                                             }                                                                                   \
