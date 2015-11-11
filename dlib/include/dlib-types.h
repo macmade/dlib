@@ -47,6 +47,14 @@ typedef enum
 }
 DLib_ModuleType;
 
+#if defined( _WIN32 ) && defined( _WIN64 )
+typedef long long DLib_Ptr;     /* Windows x64 - LLP64 */
+#elif defined( _WIN32 )
+typedef int DLib_Ptr;           /* Windows x86 - ILP32 */
+#else
+typedef long DLib_Ptr;          /* OS X - LP64 or ILP32 */
+#endif
+
 #ifdef __cplusplus
 }
 #endif
