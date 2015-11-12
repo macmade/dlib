@@ -33,7 +33,7 @@
     <ClCompile Include="..\dlib\source\dlib.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{CD8F16DB-7A6D-4968-AD40-10214184B501}</ProjectGuid>
+    <ProjectGuid>{B8404EA5-E6FC-4C79-8445-B1B268CF03F4}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>CF</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
