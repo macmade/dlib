@@ -35,7 +35,7 @@
 extern "C" {
 #endif
 
-#define DLIB_VAR( _module_, _type_, _name_ )                DLIB_PRIVATE_VAR( _module_, _type_, _name_ )
+#define DLIB_VAR( _module_, _type_, _name_, _default_ )     DLIB_PRIVATE_VAR( _module_, _type_, _name_, _default_ )
 #define DLIB_FUNC_START( _module_, _ret_, _name_, ... )     DLIB_PRIVATE_FUNC_START( _module_, _ret_, _name_, __VA_ARGS__ )
 #define DLIB_FUNC_RET( _module_, _ret_, _name_, ... )       DLIB_PRIVATE_FUNC_RET( _module_, _ret_, _name_, __VA_ARGS__ )
 #define DLIB_FUNC_NORET( _module_, _ret_, _name_, ... )     DLIB_PRIVATE_FUNC_NORET( _module_, _ret_, _name_, __VA_ARGS__ )
