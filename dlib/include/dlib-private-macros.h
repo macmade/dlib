@@ -70,7 +70,7 @@ extern "C" {
 
 #endif
 
-#define DLIB_PRIVATE_VAR( _module_, _type_, _name_ )            _type_ _name_;                                                                                  \
+#define DLIB_PRIVATE_VAR( _module_, _type_, _name_, _default_ ) _type_ _name_;                                                                                  \
                                                                 DLIB_CONSTRUCTOR( __DLib_Constructor_Var_ ## _module_ ## _ ## _type_ ## _ ## _name_ )           \
                                                                 {                                                                                               \
                                                                     DLib_ModuleRef mod;                                                                         \
@@ -83,7 +83,7 @@ extern "C" {
                                                                     {                                                                                           \
                                                                         DLIB_PRIVATE_WARN_MISSING_VAR( # _type_, # _module_, # _name_ );                        \
                                                                                                                                                                 \
-                                                                        _name_ = NULL;                                                                          \
+                                                                        _name_ = _default_;                                                                     \
                                                                     }                                                                                           \
                                                                     else                                                                                        \
                                                                     {                                                                                           \
