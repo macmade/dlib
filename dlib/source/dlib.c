@@ -195,6 +195,8 @@ DLib_ModuleRef DLib_GetModule( const char * name )
 
         #endif
         
+        free( lib );
+        
         if( module.type != DLib_ModuleType_Unknown )
         {
             __DLib_Array_Init( &( module.symbols ), sizeof( struct __DLib_Symbol ) );
@@ -207,8 +209,6 @@ DLib_ModuleRef DLib_GetModule( const char * name )
             
             return NULL;
         }
-        
-        free( lib );
     }
     
     return NULL;
