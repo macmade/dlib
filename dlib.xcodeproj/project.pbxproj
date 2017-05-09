@@ -25,7 +25,6 @@
 		05A6022A1B56EF9D00C71A24 /* dlib-module.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "dlib-module.c"; sourceTree = "<group>"; };
 		05A6022B1B56EF9D00C71A24 /* dlib-symbol.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "dlib-symbol.c"; sourceTree = "<group>"; };
 		05A6022C1B56EF9D00C71A24 /* dlib.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = dlib.c; sourceTree = "<group>"; };
-		05A6022D1B56EF9D00C71A24 /* dlib-prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "dlib-prefix.pch"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,7 +42,6 @@
 			isa = PBXGroup;
 			children = (
 				05A602201B56EF9D00C71A24 /* dlib */,
-				05A6022D1B56EF9D00C71A24 /* dlib-prefix.pch */,
 				05A6021A1B56EF4000C71A24 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -280,6 +278,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CC = "$(SRCROOT)/Scripts/ccache.sh";
 				CLANG_ANALYZER_DEADCODE_DEADSTORES = YES;
 				CLANG_ANALYZER_GCD = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_EMPTY_CONTEXT = YES;
