@@ -7,24 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		05A602341B56EF9D00C71A24 /* dlib-array.c in Sources */ = {isa = PBXBuildFile; fileRef = 05A602291B56EF9D00C71A24 /* dlib-array.c */; };
-		05A602351B56EF9D00C71A24 /* dlib-module.c in Sources */ = {isa = PBXBuildFile; fileRef = 05A6022A1B56EF9D00C71A24 /* dlib-module.c */; };
-		05A602361B56EF9D00C71A24 /* dlib-symbol.c in Sources */ = {isa = PBXBuildFile; fileRef = 05A6022B1B56EF9D00C71A24 /* dlib-symbol.c */; };
-		05A602371B56EF9D00C71A24 /* dlib.c in Sources */ = {isa = PBXBuildFile; fileRef = 05A6022C1B56EF9D00C71A24 /* dlib.c */; };
+		0564BCD71EF9A08800195C67 /* dlib-Manager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0564BCD51EF99FE400195C67 /* dlib-Manager.cpp */; };
+		0564BCD81EF9A0CF00195C67 /* dlib-Module.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0564BCD61EF99FE400195C67 /* dlib-Module.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		05287BE81EF9B470003A79D5 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		0564BCD31EF99E0900195C67 /* dlib-Module.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "dlib-Module.hpp"; sourceTree = "<group>"; };
+		0564BCD41EF99E0900195C67 /* dlib-Manager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "dlib-Manager.hpp"; sourceTree = "<group>"; };
+		0564BCD51EF99FE400195C67 /* dlib-Manager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "dlib-Manager.cpp"; sourceTree = "<group>"; };
+		0564BCD61EF99FE400195C67 /* dlib-Module.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "dlib-Module.cpp"; sourceTree = "<group>"; };
 		05A602191B56EF4000C71A24 /* libdlib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libdlib.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		05A602221B56EF9D00C71A24 /* dlib-functions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "dlib-functions.h"; sourceTree = "<group>"; };
-		05A602231B56EF9D00C71A24 /* dlib-macros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "dlib-macros.h"; sourceTree = "<group>"; };
-		05A602241B56EF9D00C71A24 /* dlib-private-macros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "dlib-private-macros.h"; sourceTree = "<group>"; };
-		05A602251B56EF9D00C71A24 /* dlib-private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "dlib-private.h"; sourceTree = "<group>"; };
-		05A602261B56EF9D00C71A24 /* dlib-types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "dlib-types.h"; sourceTree = "<group>"; };
-		05A602271B56EF9D00C71A24 /* dlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dlib.h; sourceTree = "<group>"; };
-		05A602291B56EF9D00C71A24 /* dlib-array.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "dlib-array.c"; sourceTree = "<group>"; };
-		05A6022A1B56EF9D00C71A24 /* dlib-module.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "dlib-module.c"; sourceTree = "<group>"; };
-		05A6022B1B56EF9D00C71A24 /* dlib-symbol.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "dlib-symbol.c"; sourceTree = "<group>"; };
-		05A6022C1B56EF9D00C71A24 /* dlib.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = dlib.c; sourceTree = "<group>"; };
+		05A602231B56EF9D00C71A24 /* dlib-macros.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = "dlib-macros.hpp"; sourceTree = "<group>"; };
+		05A602241B56EF9D00C71A24 /* dlib-private-macros.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = "dlib-private-macros.hpp"; sourceTree = "<group>"; };
+		05A602271B56EF9D00C71A24 /* dlib.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = dlib.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +37,7 @@
 		05A602101B56EF4000C71A24 = {
 			isa = PBXGroup;
 			children = (
+				05287BE81EF9B470003A79D5 /* README.md */,
 				05A602201B56EF9D00C71A24 /* dlib */,
 				05A6021A1B56EF4000C71A24 /* Products */,
 			);
@@ -66,12 +63,11 @@
 		05A602211B56EF9D00C71A24 /* include */ = {
 			isa = PBXGroup;
 			children = (
-				05A602221B56EF9D00C71A24 /* dlib-functions.h */,
-				05A602231B56EF9D00C71A24 /* dlib-macros.h */,
-				05A602241B56EF9D00C71A24 /* dlib-private-macros.h */,
-				05A602251B56EF9D00C71A24 /* dlib-private.h */,
-				05A602261B56EF9D00C71A24 /* dlib-types.h */,
-				05A602271B56EF9D00C71A24 /* dlib.h */,
+				05A602231B56EF9D00C71A24 /* dlib-macros.hpp */,
+				05A602241B56EF9D00C71A24 /* dlib-private-macros.hpp */,
+				05A602271B56EF9D00C71A24 /* dlib.hpp */,
+				0564BCD41EF99E0900195C67 /* dlib-Manager.hpp */,
+				0564BCD31EF99E0900195C67 /* dlib-Module.hpp */,
 			);
 			path = include;
 			sourceTree = "<group>";
@@ -79,10 +75,8 @@
 		05A602281B56EF9D00C71A24 /* source */ = {
 			isa = PBXGroup;
 			children = (
-				05A602291B56EF9D00C71A24 /* dlib-array.c */,
-				05A6022A1B56EF9D00C71A24 /* dlib-module.c */,
-				05A6022B1B56EF9D00C71A24 /* dlib-symbol.c */,
-				05A6022C1B56EF9D00C71A24 /* dlib.c */,
+				0564BCD51EF99FE400195C67 /* dlib-Manager.cpp */,
+				0564BCD61EF99FE400195C67 /* dlib-Module.cpp */,
 			);
 			path = source;
 			sourceTree = "<group>";
@@ -153,10 +147,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05A602351B56EF9D00C71A24 /* dlib-module.c in Sources */,
-				05A602341B56EF9D00C71A24 /* dlib-array.c in Sources */,
-				05A602371B56EF9D00C71A24 /* dlib.c in Sources */,
-				05A602361B56EF9D00C71A24 /* dlib-symbol.c in Sources */,
+				0564BCD81EF9A0CF00195C67 /* dlib-Module.cpp in Sources */,
+				0564BCD71EF9A08800195C67 /* dlib-Manager.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,7 +183,7 @@
 				CLANG_ANALYZER_SECURITY_INSECUREAPI_UNCHECKEDRETURN = YES;
 				CLANG_ANALYZER_SECURITY_INSECUREAPI_VFORK = YES;
 				CLANG_ANALYZER_SECURITY_KEYCHAIN_API = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "c++98";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -234,7 +226,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_C_LANGUAGE_STANDARD = c11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -311,7 +303,7 @@
 				CLANG_ANALYZER_SECURITY_INSECUREAPI_UNCHECKEDRETURN = YES;
 				CLANG_ANALYZER_SECURITY_INSECUREAPI_VFORK = YES;
 				CLANG_ANALYZER_SECURITY_KEYCHAIN_API = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "c++98";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -354,7 +346,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_C_LANGUAGE_STANDARD = c11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;

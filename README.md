@@ -11,20 +11,20 @@ dlib
 [![Donate-Gratipay](https://img.shields.io/badge/donate-gratipay-yellow.svg?style=flat)](https://www.gratipay.com/macmade)
 [![Donate-Paypal](https://img.shields.io/badge/donate-paypal-yellow.svg?style=flat)](https://paypal.me/xslabs)
 
-### Dynamic loading library for C/C++
+### Dynamic loading library for C++
 
 License
 -------
 
-dlib is released under the terms of the BOOST License.
+dlib is released under the terms of the MIT License.
 
 Repository Infos
 ----------------
 
-    Owner:			Jean-David Gadina - XS-Labs
-    Web:			www.xs-labs.com
-    Blog:			www.noxeos.com
-    Twitter:		@macmade
-    GitHub:			github.com/macmade
-    LinkedIn:		ch.linkedin.com/in/macmade/
-    StackOverflow:	stackoverflow.com/users/182676/macmade
+    Owner:          Jean-David Gadina - XS-Labs
+    Web:            www.xs-labs.com
+    Blog:           www.noxeos.com
+    Twitter:        @macmade
+    GitHub:         github.com/macmade
+    LinkedIn:       ch.linkedin.com/in/macmade/
+    StackOverflow:  stackoverflow.com/users/182676/macmade
