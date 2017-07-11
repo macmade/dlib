@@ -19,18 +19,15 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\dlib\include\dlib-functions.h" />
-    <ClInclude Include="..\dlib\include\dlib-macros.h" />
-    <ClInclude Include="..\dlib\include\dlib-private-macros.h" />
-    <ClInclude Include="..\dlib\include\dlib-private.h" />
-    <ClInclude Include="..\dlib\include\dlib-types.h" />
-    <ClInclude Include="..\dlib\include\dlib.h" />
+    <ClInclude Include="..\dlib\include\dlib-macros.hpp" />
+    <ClInclude Include="..\dlib\include\dlib-Manager.hpp" />
+    <ClInclude Include="..\dlib\include\dlib-Module.hpp" />
+    <ClInclude Include="..\dlib\include\dlib-private-macros.hpp" />
+    <ClInclude Include="..\dlib\include\dlib.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\dlib\source\dlib-array.c" />
-    <ClCompile Include="..\dlib\source\dlib-module.c" />
-    <ClCompile Include="..\dlib\source\dlib-symbol.c" />
-    <ClCompile Include="..\dlib\source\dlib.c" />
+    <ClCompile Include="..\dlib\source\dlib-Manager.cpp" />
+    <ClCompile Include="..\dlib\source\dlib-Module.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{B40AE694-6B8F-46E0-8107-DA8A91F61557}</ProjectGuid>
