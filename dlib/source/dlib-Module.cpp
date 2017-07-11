@@ -136,7 +136,7 @@ namespace dlib
     
     #ifdef _WIN32
     
-    void * Module::IMPL:LoadAndAddSymbol( const std::string & name )
+    void * Module::IMPL::LoadAndAddSymbol( const std::string & name )
     {
         std::lock_guard< std::recursive_mutex > l( this->_rmtx );
         void                                  * address;
@@ -158,7 +158,7 @@ namespace dlib
             }
         }
         
-        address = GetProcAddress( module->handle, name.c_str() );
+        address = GetProcAddress( this->_handle, name.c_str() );
         
         this->_symbols[ name ] = address;
         
