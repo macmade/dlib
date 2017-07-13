@@ -145,11 +145,11 @@ namespace dlib
         {
             {
                 std::wstring_convert< std::codecvt_utf8_utf16< wchar_t > > c;
-                std::wstring                                               wname;
+                std::wstring                                               wpath;
                 
-                wname = c.from_bytes( name );
+                wpath = c.from_bytes( this->_path );
                 
-                this->_handle = LoadLibrary( wname.c_str() );
+                this->_handle = LoadLibrary( wpath.c_str() );
             }
             
             if( this->_handle == nullptr )
