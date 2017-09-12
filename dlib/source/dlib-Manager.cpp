@@ -95,9 +95,27 @@ namespace dlib
     void Manager::AddSearchPath( const std::string & path )
     {
         std::lock_guard< std::recursive_mutex > l( this->impl->_rmtx );
-        
+
         #ifdef _WIN32
-        SetDllDirectoryA( path.c_str() );
+        {
+            wchar_t * ws;
+            int       n;
+
+            n  = MultiByteToWideChar( CP_UTF8, 0, path.c_str(), -1, NULL, 0 );
+            ws = static_cast< wchar_t * >( malloc( ( ( size_t )n * sizeof( wchar_t ) ) + sizeof( wchar_t ) ) );
+
+            if( ws != NULL )
+            {
+                MultiByteToWideChar( CP_UTF8, 0, path.c_str(), -1, ws, n );
+
+                /*
+                * AddDllDirectory doesn't exist on Windows XP
+                * AddDllDirectory( ws );
+                */
+                SetDllDirectory( ws );
+                free( ws );
+            }
+        }
         #endif
 
         this->impl->_paths.push_back( path );
