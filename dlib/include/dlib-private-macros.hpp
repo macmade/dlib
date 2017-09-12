@@ -57,7 +57,7 @@
 
 #else
 
-#define DLIB_PRIVATE_WARN_MISSING_MODULE                                    
+#define DLIB_PRIVATE_WARN_MISSING_MODULE( _module_ )                        
 #define DLIB_PRIVATE_WARN_MISSING_VAR( _type_, _module_, _name_ )           
 #define DLIB_PRIVATE_WARN_MISSING_FUNC( _type_, _module_, _name_, _args_ )  
 

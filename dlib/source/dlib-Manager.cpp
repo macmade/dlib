@@ -35,6 +35,10 @@
 #include <vector>
 #include <fstream>
 
+#ifdef _WIN32
+#include <Windows.h>
+#endif
+
 namespace dlib
 {
     class Manager::IMPL
@@ -92,6 +96,10 @@ namespace dlib
     {
         std::lock_guard< std::recursive_mutex > l( this->impl->_rmtx );
         
+        #ifdef _WIN32
+        SetDllDirectoryA( path.c_str() );
+        #endif
+
         this->impl->_paths.push_back( path );
     }
     
