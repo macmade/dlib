@@ -7,12 +7,66 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		052DE7CD206AB79800936046 /* libdlib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 05A602191B56EF4000C71A24 /* libdlib.a */; };
+		052DE7D4206AB7C000936046 /* Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 052DE7D3206AB7C000936046 /* Tests.cpp */; };
+		052DE7D6206AB83F00936046 /* GoogleMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 052DE7BD206AB75500936046 /* GoogleMock.framework */; };
+		052DE7DE206AB8D600936046 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 052DE7DA206AB8D500936046 /* libc++.tbd */; };
 		0564BCD71EF9A08800195C67 /* dlib-Manager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0564BCD51EF99FE400195C67 /* dlib-Manager.cpp */; };
 		0564BCD81EF9A0CF00195C67 /* dlib-Module.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0564BCD61EF99FE400195C67 /* dlib-Module.cpp */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		052DE7BC206AB75500936046 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 052DE7B5206AB75500936046 /* GoogleMock.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 05818F861A685AEA0072A469;
+			remoteInfo = GoogleMock;
+		};
+		052DE7BE206AB75500936046 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 052DE7B5206AB75500936046 /* GoogleMock.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 05E96ABD1A68600C00204102;
+			remoteInfo = gmock;
+		};
+		052DE7C0206AB75500936046 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 052DE7B5206AB75500936046 /* GoogleMock.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 05E96B1F1A68634900204102;
+			remoteInfo = gtest;
+		};
+		052DE7C2206AB75500936046 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 052DE7B5206AB75500936046 /* GoogleMock.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 05818F901A685AEA0072A469;
+			remoteInfo = GoogleMockTests;
+		};
+		052DE7CE206AB79800936046 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 05A602111B56EF4000C71A24 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 05A602181B56EF4000C71A24;
+			remoteInfo = dlib;
+		};
+		052DE7D7206AB84300936046 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 052DE7B5206AB75500936046 /* GoogleMock.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 05818F851A685AEA0072A469;
+			remoteInfo = GoogleMock;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		05287BE81EF9B470003A79D5 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		052DE7B5206AB75500936046 /* GoogleMock.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GoogleMock.xcodeproj; path = "Submodules/gmock-xcode/GoogleMock.xcodeproj"; sourceTree = "<group>"; };
+		052DE7C8206AB79800936046 /* Unit-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Unit-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		052DE7CC206AB79800936046 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		052DE7D3206AB7C000936046 /* Tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Tests.cpp; sourceTree = "<group>"; };
+		052DE7DA206AB8D500936046 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		0564BCD31EF99E0900195C67 /* dlib-Module.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "dlib-Module.hpp"; sourceTree = "<group>"; };
 		0564BCD41EF99E0900195C67 /* dlib-Manager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "dlib-Manager.hpp"; sourceTree = "<group>"; };
 		0564BCD51EF99FE400195C67 /* dlib-Manager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "dlib-Manager.cpp"; sourceTree = "<group>"; };
@@ -64,6 +118,16 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		052DE7C5206AB79700936046 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				052DE7DE206AB8D600936046 /* libc++.tbd in Frameworks */,
+				052DE7D6206AB83F00936046 /* GoogleMock.framework in Frameworks */,
+				052DE7CD206AB79800936046 /* libdlib.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		05A602161B56EF4000C71A24 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -74,6 +138,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		052DE7B6206AB75500936046 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				052DE7BD206AB75500936046 /* GoogleMock.framework */,
+				052DE7BF206AB75500936046 /* gmock.framework */,
+				052DE7C1206AB75500936046 /* gtest.framework */,
+				052DE7C3206AB75500936046 /* GoogleMockTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		052DE7C9206AB79800936046 /* Unit-Tests */ = {
+			isa = PBXGroup;
+			children = (
+				052DE7D3206AB7C000936046 /* Tests.cpp */,
+				052DE7CC206AB79800936046 /* Info.plist */,
+			);
+			path = "Unit-Tests";
+			sourceTree = "<group>";
+		};
+		052DE7D5206AB83F00936046 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				052DE7DA206AB8D500936046 /* libc++.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		057223DD20111DD200DC0502 /* xcconfig */ = {
 			isa = PBXGroup;
 			children = (
@@ -189,10 +281,13 @@
 		05A602101B56EF4000C71A24 = {
 			isa = PBXGroup;
 			children = (
+				052DE7B5206AB75500936046 /* GoogleMock.xcodeproj */,
 				05287BE81EF9B470003A79D5 /* README.md */,
 				057223DD20111DD200DC0502 /* xcconfig */,
 				05A602201B56EF9D00C71A24 /* dlib */,
+				052DE7C9206AB79800936046 /* Unit-Tests */,
 				05A6021A1B56EF4000C71A24 /* Products */,
+				052DE7D5206AB83F00936046 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -200,6 +295,7 @@
 			isa = PBXGroup;
 			children = (
 				05A602191B56EF4000C71A24 /* libdlib.a */,
+				052DE7C8206AB79800936046 /* Unit-Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -247,6 +343,25 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		052DE7C7206AB79700936046 /* Unit-Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 052DE7D0206AB79800936046 /* Build configuration list for PBXNativeTarget "Unit-Tests" */;
+			buildPhases = (
+				052DE7C4206AB79700936046 /* Sources */,
+				052DE7C5206AB79700936046 /* Frameworks */,
+				052DE7C6206AB79700936046 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				052DE7D8206AB84300936046 /* PBXTargetDependency */,
+				052DE7CF206AB79800936046 /* PBXTargetDependency */,
+			);
+			name = "Unit-Tests";
+			productName = "Unit-Tests";
+			productReference = 052DE7C8206AB79800936046 /* Unit-Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		05A602181B56EF4000C71A24 /* dlib */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 05A6021D1B56EF4000C71A24 /* Build configuration list for PBXNativeTarget "dlib" */;
@@ -273,6 +388,11 @@
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "XS-Labs";
 				TargetAttributes = {
+					052DE7C7206AB79700936046 = {
+						CreatedOnToolsVersion = 9.2;
+						DevelopmentTeam = 326Y53CJMD;
+						ProvisioningStyle = Automatic;
+					};
 					05A602181B56EF4000C71A24 = {
 						CreatedOnToolsVersion = 7.0;
 						DevelopmentTeam = 326Y53CJMD;
@@ -290,14 +410,70 @@
 			mainGroup = 05A602101B56EF4000C71A24;
 			productRefGroup = 05A6021A1B56EF4000C71A24 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 052DE7B6206AB75500936046 /* Products */;
+					ProjectRef = 052DE7B5206AB75500936046 /* GoogleMock.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				05A602181B56EF4000C71A24 /* dlib */,
+				052DE7C7206AB79700936046 /* Unit-Tests */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		052DE7BD206AB75500936046 /* GoogleMock.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = GoogleMock.framework;
+			remoteRef = 052DE7BC206AB75500936046 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		052DE7BF206AB75500936046 /* gmock.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = gmock.framework;
+			remoteRef = 052DE7BE206AB75500936046 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		052DE7C1206AB75500936046 /* gtest.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = gtest.framework;
+			remoteRef = 052DE7C0206AB75500936046 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		052DE7C3206AB75500936046 /* GoogleMockTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = GoogleMockTests.xctest;
+			remoteRef = 052DE7C2206AB75500936046 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		052DE7C6206AB79700936046 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		052DE7C4206AB79700936046 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				052DE7D4206AB7C000936046 /* Tests.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		05A602151B56EF4000C71A24 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -309,7 +485,42 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		052DE7CF206AB79800936046 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 05A602181B56EF4000C71A24 /* dlib */;
+			targetProxy = 052DE7CE206AB79800936046 /* PBXContainerItemProxy */;
+		};
+		052DE7D8206AB84300936046 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GoogleMock;
+			targetProxy = 052DE7D7206AB84300936046 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		052DE7D1206AB79800936046 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/dlib/include";
+				INFOPLIST_FILE = "Unit-Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.Unit-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		052DE7D2206AB79800936046 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/dlib/include";
+				INFOPLIST_FILE = "Unit-Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.Unit-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		05A6021B1B56EF4000C71A24 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 057223E020111DD200DC0502 /* Debug - ccache.xcconfig */;
@@ -347,6 +558,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		052DE7D0206AB79800936046 /* Build configuration list for PBXNativeTarget "Unit-Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				052DE7D1206AB79800936046 /* Debug */,
+				052DE7D2206AB79800936046 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		05A602141B56EF4000C71A24 /* Build configuration list for PBXProject "dlib" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
