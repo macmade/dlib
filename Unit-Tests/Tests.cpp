@@ -33,6 +33,8 @@
 #include <GoogleMock/GoogleMock.h>
 #endif
 
+#define DLIB_S( _s_ ) _s_
+
 #include <dlib.hpp>
 
 extern int hv_vcpu_run(  unsigned int cpu );

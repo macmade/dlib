@@ -34,12 +34,16 @@
 #include <string>
 #include <mutex>
 
+#ifndef DLIB_S
+#define DLIB_S( _s_ ) _s_
+#endif
+
 #ifdef _MSC_VER
 
     #pragma section( ".CRT$XCU", read )
     
-    #define DLIB_PRIVATE_CONSTRUCTOR( _name_ )  static void __cdecl _name_( void );														\
-                                                 __declspec( allocate( ".CRT$XCU" ) ) void ( __cdecl * _name_ ## _ )( void ) = _name_;	\
+    #define DLIB_PRIVATE_CONSTRUCTOR( _name_ )  static void __cdecl _name_( void );                                                     \
+                                                 __declspec( allocate( ".CRT$XCU" ) ) void ( __cdecl * _name_ ## _ )( void ) = _name_;  \
                                                 static void __cdecl _name_( void )
 
 #else
@@ -63,63 +67,63 @@
 
 #endif
 
-#define DLIB_PRIVATE_VAR( _module_, _type_, _name_, _default_ ) _type_ _name_;                                                                              \
-                                                                                                                                                            \
-                                                                DLIB_CONSTRUCTOR( __DLib_Constructor_Var_ ## _module_ ## _ ## _type_ ## _ ## _name_ )       \
-                                                                {                                                                                           \
-                                                                    dlib::Module * module;                                                                  \
-                                                                                                                                                            \
-                                                                    module = dlib::Manager::SharedInstance().GetModule( # _module_ );                       \
-                                                                                                                                                            \
-                                                                    if( module == nullptr )                                                                 \
-                                                                    {                                                                                       \
-                                                                        DLIB_PRIVATE_WARN_MISSING_MODULE( # _module_ );                                     \
-                                                                                                                                                            \
-                                                                        _name_ = _default_;                                                                 \
-                                                                    }                                                                                       \
-                                                                    else if( module->GetSymbolAddress( # _name_ ) == nullptr )                              \
-                                                                    {                                                                                       \
-                                                                        DLIB_PRIVATE_WARN_MISSING_VAR( # _type_, # _module_, # _name_ );                    \
-                                                                                                                                                            \
-                                                                        _name_ = _default_;                                                                 \
-                                                                    }                                                                                       \
-                                                                    else                                                                                    \
-                                                                    {                                                                                       \
-                                                                        _name_ = *( reinterpret_cast< _type_ * >( module->GetSymbolAddress( # _name_ ) ) ); \
-                                                                    }                                                                                       \
+#define DLIB_PRIVATE_VAR( _module_, _type_, _name_, _default_ ) _type_ _name_;                                                                                          \
+                                                                                                                                                                        \
+                                                                DLIB_CONSTRUCTOR( __DLib_Constructor_Var_ ## _module_ ## _ ## _type_ ## _ ## _name_ )                   \
+                                                                {                                                                                                       \
+                                                                    dlib::Module * module;                                                                              \
+                                                                                                                                                                        \
+                                                                    module = dlib::Manager::SharedInstance().GetModule( DLIB_S( # _module_ ) );                         \
+                                                                                                                                                                        \
+                                                                    if( module == nullptr )                                                                             \
+                                                                    {                                                                                                   \
+                                                                        DLIB_PRIVATE_WARN_MISSING_MODULE( DLIB_S( # _module_ ) );                                       \
+                                                                                                                                                                        \
+                                                                        _name_ = _default_;                                                                             \
+                                                                    }                                                                                                   \
+                                                                    else if( module->GetSymbolAddress( DLIB_S( # _name_ ) ) == nullptr )                                \
+                                                                    {                                                                                                   \
+                                                                        DLIB_PRIVATE_WARN_MISSING_VAR( DLIB_S( # _type_ ), DLIB_S( # _module_ ), DLIB_S( # _name_ ) );  \
+                                                                                                                                                                        \
+                                                                        _name_ = _default_;                                                                             \
+                                                                    }                                                                                                   \
+                                                                    else                                                                                                \
+                                                                    {                                                                                                   \
+                                                                        _name_ = *( reinterpret_cast< _type_ * >( module->GetSymbolAddress( DLIB_S( # _name_ ) ) ) );   \
+                                                                    }                                                                                                   \
                                                                 }
                                                                 
-#define DLIB_PRIVATE_FUNC_START( _module_, _ret_, _name_, ... ) _ret_ _name_( __VA_ARGS__ )                                                                         \
-                                                                {                                                                                                   \
-                                                                    static _ret_ ( * f )( __VA_ARGS__ ) = nullptr;                                                  \
-                                                                    static std::once_flag once;                                                                     \
-                                                                                                                                                                    \
-                                                                    std::call_once                                                                                  \
-                                                                    (                                                                                               \
-                                                                        once,                                                                                       \
-                                                                        [ & ]                                                                                       \
-                                                                        {                                                                                           \
-                                                                            dlib::Module * module;                                                                  \
-                                                                                                                                                                    \
-                                                                            module = dlib::Manager::SharedInstance().GetModule( # _module_ );                       \
-                                                                                                                                                                    \
-                                                                            if( module == nullptr )                                                                 \
-                                                                            {                                                                                       \
-                                                                                DLIB_PRIVATE_WARN_MISSING_MODULE( # _module_ );                                     \
-                                                                            }                                                                                       \
-                                                                            else                                                                                    \
-                                                                            {                                                                                       \
-                                                                                f = reinterpret_cast< _ret_ ( * )( __VA_ARGS__ ) >                                  \
-                                                                                (                                                                                   \
-                                                                                    module->GetSymbolAddress( # _name_ )                                            \
-                                                                                );                                                                                  \
-                                                                                                                                                                    \
-                                                                                if( f == nullptr )                                                                  \
-                                                                                {                                                                                   \
-                                                                                    DLIB_PRIVATE_WARN_MISSING_FUNC( # _module_, # _ret_, # _name_, # __VA_ARGS__ ); \
-                                                                                }                                                                                   \
-                                                                            }                                                                                       \
-                                                                        }                                                                                           \
+#define DLIB_PRIVATE_FUNC_START( _module_, _ret_, _name_, ... ) _ret_ _name_( __VA_ARGS__ )                                                                                                                 \
+                                                                {                                                                                                                                           \
+                                                                    static _ret_ ( * f )( __VA_ARGS__ ) = nullptr;                                                                                          \
+                                                                    static std::once_flag once;                                                                                                             \
+                                                                                                                                                                                                            \
+                                                                    std::call_once                                                                                                                          \
+                                                                    (                                                                                                                                       \
+                                                                        once,                                                                                                                               \
+                                                                        [ & ]                                                                                                                               \
+                                                                        {                                                                                                                                   \
+                                                                            dlib::Module * module;                                                                                                          \
+                                                                                                                                                                                                            \
+                                                                            module = dlib::Manager::SharedInstance().GetModule( DLIB_S( # _module_ ) );                                                     \
+                                                                                                                                                                                                            \
+                                                                            if( module == nullptr )                                                                                                         \
+                                                                            {                                                                                                                               \
+                                                                                DLIB_PRIVATE_WARN_MISSING_MODULE( DLIB_S( # _module_ ) );                                                                   \
+                                                                            }                                                                                                                               \
+                                                                            else                                                                                                                            \
+                                                                            {                                                                                                                               \
+                                                                                f = reinterpret_cast< _ret_ ( * )( __VA_ARGS__ ) >                                                                          \
+                                                                                (                                                                                                                           \
+                                                                                    module->GetSymbolAddress( DLIB_S( # _name_ ) )                                                                          \
+                                                                                );                                                                                                                          \
+                                                                                                                                                                                                            \
+                                                                                if( f == nullptr )                                                                                                          \
+                                                                                {                                                                                                                           \
+                                                                                    DLIB_PRIVATE_WARN_MISSING_FUNC( DLIB_S( # _module_ ), DLIB_S( # _ret_ ), DLIB_S( # _name_ ), DLIB_S( # __VA_ARGS__ ) ); \
+                                                                                }                                                                                                                           \
+                                                                            }                                                                                                                               \
+                                                                        }                                                                                                                                   \
                                                                     );
                                                                     
 #define DLIB_PRIVATE_FUNC_RET( _module_, _ret_, _name_, ... )       if( f == nullptr )          \
