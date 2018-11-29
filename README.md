@@ -1,7 +1,8 @@
 dlib
 ====
 
-[![Build Status](https://img.shields.io/travis/macmade/dlib.svg?branch=master&style=flat)](https://travis-ci.org/macmade/dlib)
+[![Build Status](https://img.shields.io/travis/macmade/dlib.svg?branch=master&logo=travis&style=flat)](https://travis-ci.org/macmade/dlib)
+[![Build-AppVeyor](https://ci.appveyor.com/api/projects/status/github/macmade/dlib?svg=true)](https://ci.appveyor.com/project/macmade/dlib)
 [![Coverage Status](https://img.shields.io/coveralls/macmade/dlib.svg?branch=master&style=flat)](https://coveralls.io/r/macmade/dlib?branch=master)
 [![Issues](http://img.shields.io/github/issues/macmade/dlib.svg?style=flat)](https://github.com/macmade/dlib/issues)
 ![Status](https://img.shields.io/badge/status-active-brightgreen.svg?style=flat)
