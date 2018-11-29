@@ -27,11 +27,8 @@
  * @copyright   (c) 2018, Jean-David Gadina - www.xs-labs.com
  */
 
-#ifdef _WIN32
-#include <gtest/gtest.h>
-#else
-#include <GoogleMock/GoogleMock.h>
-#endif
+#define XSTEST_GTEST_COMPAT
+#include <XSTest/XSTest.hpp>
 
 #define DLIB_S( _s_ ) _s_
 
@@ -48,30 +45,33 @@ DLIB_FUNC_RET(   Hypervisor, int, hv_vm_foobar, flags )
 
 TEST( dlib, GetModule )
 {
-    dlib::Module * m1( dlib::Manager::SharedInstance().GetModule( "Hypervisor" ) );
-    dlib::Module * m2( dlib::Manager::SharedInstance().GetModule( "FooBar" ) );
+    dlib::Manager  manager;
+    dlib::Module * mod1( manager.GetModule( "Hypervisor" ) );
+    dlib::Module * mod2( manager.GetModule( "FooBar" ) );
     
-    dlib::Manager::SharedInstance().AddSearchPath( "/System/Library/Frameworks/" );
+    manager.AddSearchPath( "/System/Library/Frameworks/" );
     
     {
-        dlib::Module * m3( dlib::Manager::SharedInstance().GetModule( "Hypervisor" ) );
+        dlib::Module * mod3( manager.GetModule( "Hypervisor" ) );
         
-        ASSERT_EQ( m1, nullptr );
-        ASSERT_EQ( m2, nullptr );
-        ASSERT_NE( m3, nullptr );
+        ASSERT_EQ( mod1, nullptr );
+        ASSERT_EQ( mod2, nullptr );
+        ASSERT_NE( mod3, nullptr );
     }
 }
 
 TEST( dlib, GetSymbolAddress )
 {
-    dlib::Manager::SharedInstance().AddSearchPath( "/System/Library/Frameworks/" );
+    dlib::Manager manager;
+    
+    manager.AddSearchPath( "/System/Library/Frameworks/" );
     
     {
-        dlib::Module * m( dlib::Manager::SharedInstance().GetModule( "Hypervisor" ) );
+        dlib::Module * mod( manager.GetModule( "Hypervisor" ) );
         
-        ASSERT_NE( m, nullptr );
-        ASSERT_NE( m->GetSymbolAddress( "hv_vcpu_run"  ), nullptr );
-        ASSERT_EQ( m->GetSymbolAddress( "hv_vm_foobar" ), nullptr );
+        ASSERT_NE( mod, nullptr );
+        ASSERT_NE( mod->GetSymbolAddress( "hv_vcpu_run"  ), nullptr );
+        ASSERT_EQ( mod->GetSymbolAddress( "hv_vm_foobar" ), nullptr );
     }
 }
 
