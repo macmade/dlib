@@ -58,7 +58,11 @@ namespace dlib
     
     static Manager * sharedManager = nullptr;
     
+    #ifdef _WIN32
+    Manager & __cdecl Manager::SharedInstance( void )
+    #else
     Manager & Manager::SharedInstance( void )
+    #endif
     {
         static std::once_flag once;
         

@@ -40,7 +40,11 @@ namespace dlib
     {
         public:
             
+            #ifdef _WIN32
+            static Manager & __cdecl SharedInstance( void );
+            #else
             static Manager & SharedInstance( void );
+            #endif
             
             Manager( void );
             Manager( const Manager & o );
