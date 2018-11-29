@@ -124,7 +124,7 @@ namespace dlib
         {
             #ifdef _WIN32
             
-            CloseHandle( this->_handle );
+            FreeLibrary( this->_handle );
         
             #else
             
