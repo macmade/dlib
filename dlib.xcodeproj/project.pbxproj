@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		052DE7CD206AB79800936046 /* libdlib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 05A602191B56EF4000C71A24 /* libdlib.a */; };
-		052DE7D4206AB7C000936046 /* Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 052DE7D3206AB7C000936046 /* Tests.cpp */; };
+		052DE7D4206AB7C000936046 /* Mac.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 052DE7D3206AB7C000936046 /* Mac.cpp */; };
 		052DE7DE206AB8D600936046 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 052DE7DA206AB8D500936046 /* libc++.tbd */; };
 		0536385B21AFF8860015CFA9 /* XSTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0536385A21AFF87B0015CFA9 /* XSTest.framework */; };
 		0564BCD71EF9A08800195C67 /* dlib-Manager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0564BCD51EF99FE400195C67 /* dlib-Manager.cpp */; };
@@ -43,7 +43,7 @@
 		05287BE81EF9B470003A79D5 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		052DE7C8206AB79800936046 /* Unit-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Unit-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		052DE7CC206AB79800936046 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		052DE7D3206AB7C000936046 /* Tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Tests.cpp; sourceTree = "<group>"; };
+		052DE7D3206AB7C000936046 /* Mac.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Mac.cpp; sourceTree = "<group>"; };
 		052DE7DA206AB8D500936046 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		0536385521AFF87B0015CFA9 /* XSTest.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = XSTest.xcodeproj; path = Submodules/XSTest/XSTest.xcodeproj; sourceTree = "<group>"; };
 		0564BCD31EF99E0900195C67 /* dlib-Module.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "dlib-Module.hpp"; sourceTree = "<group>"; };
@@ -120,7 +120,7 @@
 		052DE7C9206AB79800936046 /* Unit-Tests */ = {
 			isa = PBXGroup;
 			children = (
-				052DE7D3206AB7C000936046 /* Tests.cpp */,
+				052DE7D3206AB7C000936046 /* Mac.cpp */,
 				052DE7CC206AB79800936046 /* Info.plist */,
 			);
 			path = "Unit-Tests";
@@ -425,7 +425,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				052DE7D4206AB7C000936046 /* Tests.cpp in Sources */,
+				052DE7D4206AB7C000936046 /* Mac.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

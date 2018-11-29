@@ -23,7 +23,7 @@
  ******************************************************************************/
 
 /*!
- * @file        Tests.cpp
+ * @file        Mac.cpp
  * @copyright   (c) 2018, Jean-David Gadina - www.xs-labs.com
  */
 
