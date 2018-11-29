@@ -35,25 +35,25 @@
 
 #include <dlib.hpp>
 
-extern int hv_vcpu_run(  unsigned int cpu );
-extern int hv_vm_foobar( uint64_t flags );
+extern DWORD SymSetOptions( DWORD );
+extern DWORD FooBar( DWORD );
 
-DLIB_FUNC_START( Hypervisor, int, hv_vcpu_run, unsigned int cpu )
-DLIB_FUNC_RET(   Hypervisor, int, hv_vcpu_run, cpu )
+DLIB_FUNC_START( DbgHelp, DWORD, SymSetOptions, DWORD i )
+DLIB_FUNC_RET(   DbgHelp, DWORD, SymSetOptions, i )
 
-DLIB_FUNC_START( Hypervisor, int, hv_vm_foobar, uint64_t flags )
-DLIB_FUNC_RET(   Hypervisor, int, hv_vm_foobar, flags )
+DLIB_FUNC_START( DbgHelp, DWORD, FooBar, DWORD i )
+DLIB_FUNC_RET(   DbgHelp, DWORD, FooBar, i )
 
 TEST( dlib, GetModule )
 {
     dlib::Manager  manager;
-    dlib::Module * mod1( manager.GetModule( "Hypervisor" ) );
+    dlib::Module * mod1( manager.GetModule( "DbgHelp" ) );
     dlib::Module * mod2( manager.GetModule( "FooBar" ) );
     
-    manager.AddSearchPath( "/System/Library/Frameworks/" );
+    manager.AddSearchPath( "C:\\Windows\\System32\\" );
     
     {
-        dlib::Module * mod3( manager.GetModule( "Hypervisor" ) );
+        dlib::Module * mod3( manager.GetModule( "DbgHelp" ) );
         
         ASSERT_EQ( mod1, nullptr );
         ASSERT_EQ( mod2, nullptr );
@@ -65,28 +65,27 @@ TEST( dlib, GetSymbolAddress )
 {
     dlib::Manager manager;
     
-    manager.AddSearchPath( "/System/Library/Frameworks/" );
-    
+    manager.AddSearchPath( "C:\\Windows\\System32\\" );
+
     {
-        dlib::Module * mod( manager.GetModule( "Hypervisor" ) );
+        dlib::Module * mod( manager.GetModule( "DbgHelp" ) );
         
         ASSERT_NE( mod, nullptr );
-        ASSERT_NE( mod->GetSymbolAddress( "hv_vcpu_run"  ), nullptr );
-        ASSERT_EQ( mod->GetSymbolAddress( "hv_vm_foobar" ), nullptr );
+        ASSERT_NE( mod->GetSymbolAddress( "SymSetOptions"  ), nullptr );
+        ASSERT_EQ( mod->GetSymbolAddress( "FooBar" ),  nullptr );
     }
 }
 
 TEST( dlib, Call )
 {
-    int r1( 0 );
-    int r2( 1 );
+    DWORD r1( 0 );
+    DWORD r2( 1 );
     
-    dlib::Manager::SharedInstance().AddSearchPath( "/System/Library/Frameworks/" );
+    dlib::Manager::SharedInstance().AddSearchPath( "C:\\Windows\\System32\\" );
     
-    ASSERT_NO_THROW( r1 = hv_vcpu_run( 0 ) );
-    ASSERT_NO_THROW( r2 = hv_vm_foobar( 0 ) );
+    ASSERT_NO_THROW( r1 = SymSetOptions( 42 ) );
+    ASSERT_NO_THROW( r2 = FooBar( 42 ) );
     
     ASSERT_TRUE( r1 != 0 );
     ASSERT_TRUE( r2 == 0 );
 }
-
