@@ -33,26 +33,27 @@
 #define DLIB_S( _s_ ) _s_
 
 #include <dlib.hpp>
+#include <mach/mach.h>
 
-extern int hv_vcpu_run(  unsigned int cpu );
-extern int hv_vm_foobar( uint64_t flags );
+extern kern_return_t IOMasterPort( mach_port_t bootstrapPort, mach_port_t * masterPort );
+extern kern_return_t IOMasterPortInvalid( mach_port_t bootstrapPort, mach_port_t * masterPort );
 
-DLIB_FUNC_START( Hypervisor, int, hv_vcpu_run, unsigned int cpu )
-DLIB_FUNC_RET(   Hypervisor, int, hv_vcpu_run, cpu )
+DLIB_FUNC_START( IOKit, kern_return_t, IOMasterPort, mach_port_t bootstrapPort, mach_port_t * masterPort )
+DLIB_FUNC_RET(   IOKit, kern_return_t, IOMasterPort, bootstrapPort, masterPort )
 
-DLIB_FUNC_START( Hypervisor, int, hv_vm_foobar, uint64_t flags )
-DLIB_FUNC_RET(   Hypervisor, int, hv_vm_foobar, flags )
+DLIB_FUNC_START( IOKit, kern_return_t, IOMasterPortInvalid, mach_port_t bootstrapPort, mach_port_t * masterPort )
+DLIB_FUNC_RET(   IOKit, kern_return_t, IOMasterPortInvalid, bootstrapPort, masterPort )
 
 TEST( dlib, GetModule )
 {
     dlib::Manager  manager;
-    dlib::Module * mod1( manager.GetModule( "Hypervisor" ) );
+    dlib::Module * mod1( manager.GetModule( "IOKit" ) );
     dlib::Module * mod2( manager.GetModule( "FooBar" ) );
     
     manager.AddSearchPath( "/System/Library/Frameworks/" );
     
     {
-        dlib::Module * mod3( manager.GetModule( "Hypervisor" ) );
+        dlib::Module * mod3( manager.GetModule( "IOKit" ) );
         
         ASSERT_EQ( mod1, nullptr );
         ASSERT_EQ( mod2, nullptr );
@@ -67,25 +68,29 @@ TEST( dlib, GetSymbolAddress )
     manager.AddSearchPath( "/System/Library/Frameworks/" );
     
     {
-        dlib::Module * mod( manager.GetModule( "Hypervisor" ) );
+        dlib::Module * mod( manager.GetModule( "IOKit" ) );
         
         ASSERT_NE( mod, nullptr );
-        ASSERT_NE( mod->GetSymbolAddress( "hv_vcpu_run"  ), nullptr );
-        ASSERT_EQ( mod->GetSymbolAddress( "hv_vm_foobar" ), nullptr );
+        ASSERT_NE( mod->GetSymbolAddress( "IOMasterPort"  ),       nullptr );
+        ASSERT_EQ( mod->GetSymbolAddress( "IOMasterPortInvalid" ), nullptr );
     }
 }
 
 TEST( dlib, Call )
 {
-    int r1( 0 );
-    int r2( 1 );
+    kern_return_t r1( 1 );
+    kern_return_t r2( 1 );
+    mach_port_t   p1( 0 );
+    mach_port_t   p2( 0 );
     
     dlib::Manager::SharedInstance().AddSearchPath( "/System/Library/Frameworks/" );
     
-    ASSERT_NO_THROW( r1 = hv_vcpu_run( 0 ) );
-    ASSERT_NO_THROW( r2 = hv_vm_foobar( 0 ) );
+    ASSERT_NO_THROW( r1 = IOMasterPort(        MACH_PORT_NULL, &p1 ) );
+    ASSERT_NO_THROW( r2 = IOMasterPortInvalid( MACH_PORT_NULL, &p2 ) );
     
-    ASSERT_TRUE( r1 != 0 );
+    ASSERT_TRUE( r1 == 0 );
     ASSERT_TRUE( r2 == 0 );
+    
+    ASSERT_TRUE( p1 != 0 );
+    ASSERT_TRUE( p2 == 0 );
 }
-
