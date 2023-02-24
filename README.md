@@ -1,8 +1,8 @@
 dlib
 ====
 
-[![Build Status](https://img.shields.io/github/workflow/status/macmade/dlib/ci-mac?label=macOS&logo=apple)](https://github.com/macmade/dlib/actions/workflows/ci-mac.yaml)
-[![Build Status](https://img.shields.io/github/workflow/status/macmade/dlib/ci-win?label=Windows&logo=windows)](https://github.com/macmade/dlib/actions/workflows/ci-win.yaml)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/macmade/dlib/ci-mac.yaml?label=macOS&logo=apple)](https://github.com/macmade/dlib/actions/workflows/ci-mac.yaml)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/macmade/dlib/ci-win.yaml?label=Windows&logo=windows)](https://github.com/macmade/dlib/actions/workflows/ci-win.yaml)
 [![Issues](http://img.shields.io/github/issues/macmade/dlib.svg?logo=github)](https://github.com/macmade/dlib/issues)
 ![Status](https://img.shields.io/badge/status-active-brightgreen.svg?logo=git)
 ![License](https://img.shields.io/badge/license-mit-brightgreen.svg?logo=open-source-initiative)  
